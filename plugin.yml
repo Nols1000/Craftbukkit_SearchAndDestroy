@@ -1,0 +1,42 @@
+name: 'Search and Destroy'
+version: 0.2.0beta
+description: Search and Destroy [COD PVP MOD]
+authors: [Nols1000] 
+website: http://nols1000.de/
+main: com.github.Nols1000.SAD.Plugin
+ 
+commands:
+  sad:
+    description: Search and Destroy
+    aliases: [searchanddestroy]
+    permission: sad
+    usage: |
+      /<command> add spawn [teamID] - adds a spawn teamID[0|1]
+      /<command> add station - adds a station
+      /<command> add bomb - adds bomb spawn
+      /<command> add sign - adds sign
+permissions:
+  sad.*:
+    description: 
+    children:
+      sad.add: true
+  sad.add.*:
+    description: Allows you to ignite yourself
+    default: op
+    children:
+      sad.add.station: true
+      sad.add.bomb: true
+      sad.add.spawn: true
+      sad.add.sign: true
+  sad.add.station:
+    description: Allows to use command '/sad add station'
+    default: op
+  sad.add.bomb:
+    description: Allows to use command '/sad add bomb'
+    default: op
+  sad.add.spawn:
+    description: Allows to use command '/sad add spawn [teamID]'
+    default: op
+  sad.add.sign:
+    description: Allows to use command '/sad add sign'
+    default: op
